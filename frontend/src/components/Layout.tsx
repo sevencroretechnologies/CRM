@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { LayoutDashboard, Users, Target, Building2, Megaphone, Globe, CalendarClock, Settings, MapPin, UserCircle, Briefcase } from "lucide-react";
+import { LayoutDashboard, Users, Target, Building2, Megaphone, Globe, CalendarClock, Settings, MapPin, UserCircle, Briefcase, FileText, DollarSign, UserCheck, MessageSquare, Mail } from "lucide-react";
 
 const links = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard },
@@ -12,6 +12,11 @@ const links = [
   { to: "/sources", label: "Sources", icon: Globe },
   { to: "/territories", label: "Territories", icon: MapPin },
   { to: "/appointments", label: "Appointments", icon: CalendarClock },
+  { to: "/contracts", label: "Contracts", icon: FileText },
+  { to: "/quotations", label: "Quotations", icon: DollarSign },
+  { to: "/sales-persons", label: "Sales Persons", icon: UserCheck },
+  { to: "/communication-logs", label: "Communications", icon: MessageSquare },
+  { to: "/newsletters", label: "Newsletters", icon: Mail },
   { to: "/settings", label: "Settings", icon: Settings },
 ];
 

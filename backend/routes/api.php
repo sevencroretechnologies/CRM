@@ -26,6 +26,10 @@ use App\Http\Controllers\Api\CustomerGroupController;
 use App\Http\Controllers\Api\PaymentTermController;
 use App\Http\Controllers\Api\PriceListController;
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\QuotationController;
+use App\Http\Controllers\Api\SalesPersonController;
+use App\Http\Controllers\Api\CommunicationLogController;
+use App\Http\Controllers\Api\NewsletterController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
@@ -84,6 +88,21 @@ Route::prefix('v1')->group(function () {
     // Enum routes
     Route::get('enums/qualification-statuses', [EnumController::class, 'qualificationStatuses']);
     Route::get('enums/genders', [EnumController::class, 'genders']);
+
+    // Quotations
+    Route::apiResource('quotations', QuotationController::class);
+    Route::post('quotations/{id}/submit', [QuotationController::class, 'submit']);
+    Route::post('quotations/{id}/cancel', [QuotationController::class, 'cancel']);
+
+    // Sales Persons
+    Route::apiResource('sales-persons', SalesPersonController::class);
+
+    // Communication Logs
+    Route::apiResource('communication-logs', CommunicationLogController::class);
+
+    // Newsletters
+    Route::apiResource('newsletters', NewsletterController::class);
+    Route::post('newsletters/{id}/send', [NewsletterController::class, 'send']);
 
     Route::get('settings', [CrmSettingController::class, 'show']);
     Route::put('settings', [CrmSettingController::class, 'update']);

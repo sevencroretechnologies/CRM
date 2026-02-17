@@ -362,6 +362,114 @@ export interface PaymentTerm {
   updated_at: string;
 }
 
+export interface Quotation {
+  id: number;
+  naming_series: string | null;
+  quotation_to: string;
+  customer_id: number | null;
+  customer: Customer | null;
+  lead_id: number | null;
+  lead: Lead | null;
+  opportunity_id: number | null;
+  opportunity: Opportunity | null;
+  party_name: string | null;
+  status: string;
+  transaction_date: string | null;
+  valid_till: string | null;
+  order_type: string | null;
+  currency: string;
+  total_amount: number;
+  discount_amount: number;
+  grand_total: number;
+  tax_amount: number;
+  net_total: number;
+  territory_id: number | null;
+  territory: Territory | null;
+  customer_address: string | null;
+  contact_person: string | null;
+  contact_email: string | null;
+  contact_mobile: string | null;
+  terms: string | null;
+  notes: string | null;
+  sales_person_id: number | null;
+  items: QuotationItem[];
+  created_at: string;
+  updated_at: string;
+}
+
+export interface QuotationItem {
+  id?: number;
+  quotation_id?: number;
+  item_name: string;
+  description: string | null;
+  qty: number;
+  uom: string | null;
+  rate: number;
+  amount: number;
+  discount_percentage: number;
+  discount_amount: number;
+  net_amount: number;
+}
+
+export interface SalesPerson {
+  id: number;
+  sales_person_name: string;
+  parent_sales_person_id: number | null;
+  parent: SalesPerson | null;
+  is_group: boolean;
+  enabled: boolean;
+  commission_rate: number;
+  employee_id: number | null;
+  territory_id: number | null;
+  territory: Territory | null;
+  children: SalesPerson[];
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CommunicationLog {
+  id: number;
+  subject: string | null;
+  communication_type: string;
+  communication_medium: string;
+  status: string;
+  communication_date: string | null;
+  sender: string | null;
+  sender_full_name: string | null;
+  recipients: string | null;
+  cc: string | null;
+  bcc: string | null;
+  content: string | null;
+  reference_doctype: string | null;
+  reference_id: number | null;
+  sent_or_received: boolean;
+  has_attachment: boolean;
+  user_id: number | null;
+  user: { id: number; name: string; email: string } | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface Newsletter {
+  id: number;
+  subject: string;
+  status: string;
+  message: string | null;
+  email_group: string | null;
+  send_at: string | null;
+  sent_at: string | null;
+  total_recipients: number;
+  emails_sent: number;
+  campaign_id: number | null;
+  campaign: Campaign | null;
+  sender_id: number | null;
+  sender: { id: number; name: string; email: string } | null;
+  sender_name: string | null;
+  sender_email: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface Customer {
   id: number;
   name: string;

@@ -26,6 +26,10 @@ import type {
   PriceList,
   PaymentTerm,
   EnumOption,
+  Quotation,
+  SalesPerson,
+  CommunicationLog,
+  Newsletter,
 } from "../types";
 
 const api = axios.create({
@@ -284,6 +288,56 @@ export const paymentTermApi = {
   update: (id: number, data: Partial<PaymentTerm>) =>
     api.put<PaymentTerm>(`/payment-terms/${id}`, data).then((r) => r.data),
   delete: (id: number) => api.delete(`/payment-terms/${id}`),
+};
+
+export const quotationApi = {
+  list: (params?: Record<string, string | number>) =>
+    api.get<PaginatedResponse<Quotation>>("/quotations", { params }).then((r) => r.data),
+  get: (id: number) => api.get<Quotation>(`/quotations/${id}`).then((r) => r.data),
+  create: (data: Partial<Quotation>) =>
+    api.post<Quotation>("/quotations", data).then((r) => r.data),
+  update: (id: number, data: Partial<Quotation>) =>
+    api.put<Quotation>(`/quotations/${id}`, data).then((r) => r.data),
+  delete: (id: number) => api.delete(`/quotations/${id}`),
+  submit: (id: number) =>
+    api.post<Quotation>(`/quotations/${id}/submit`).then((r) => r.data),
+  cancel: (id: number) =>
+    api.post<Quotation>(`/quotations/${id}/cancel`).then((r) => r.data),
+};
+
+export const salesPersonApi = {
+  list: (params?: Record<string, string | number>) =>
+    api.get<SalesPerson[]>("/sales-persons", { params }).then((r) => r.data),
+  get: (id: number) => api.get<SalesPerson>(`/sales-persons/${id}`).then((r) => r.data),
+  create: (data: Partial<SalesPerson>) =>
+    api.post<SalesPerson>("/sales-persons", data).then((r) => r.data),
+  update: (id: number, data: Partial<SalesPerson>) =>
+    api.put<SalesPerson>(`/sales-persons/${id}`, data).then((r) => r.data),
+  delete: (id: number) => api.delete(`/sales-persons/${id}`),
+};
+
+export const communicationLogApi = {
+  list: (params?: Record<string, string | number>) =>
+    api.get<PaginatedResponse<CommunicationLog>>("/communication-logs", { params }).then((r) => r.data),
+  get: (id: number) => api.get<CommunicationLog>(`/communication-logs/${id}`).then((r) => r.data),
+  create: (data: Partial<CommunicationLog>) =>
+    api.post<CommunicationLog>("/communication-logs", data).then((r) => r.data),
+  update: (id: number, data: Partial<CommunicationLog>) =>
+    api.put<CommunicationLog>(`/communication-logs/${id}`, data).then((r) => r.data),
+  delete: (id: number) => api.delete(`/communication-logs/${id}`),
+};
+
+export const newsletterApi = {
+  list: (params?: Record<string, string | number>) =>
+    api.get<PaginatedResponse<Newsletter>>("/newsletters", { params }).then((r) => r.data),
+  get: (id: number) => api.get<Newsletter>(`/newsletters/${id}`).then((r) => r.data),
+  create: (data: Partial<Newsletter>) =>
+    api.post<Newsletter>("/newsletters", data).then((r) => r.data),
+  update: (id: number, data: Partial<Newsletter>) =>
+    api.put<Newsletter>(`/newsletters/${id}`, data).then((r) => r.data),
+  delete: (id: number) => api.delete(`/newsletters/${id}`),
+  send: (id: number) =>
+    api.post<Newsletter>(`/newsletters/${id}/send`).then((r) => r.data),
 };
 
 export default api;

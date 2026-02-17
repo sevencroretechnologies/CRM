@@ -25,6 +25,16 @@ import ContactList from "./pages/ContactList";
 import ContactForm from "./pages/ContactForm";
 import CustomerList from "./pages/CustomerList";
 import CustomerForm from "./pages/CustomerForm";
+import ContractList from "./pages/ContractList";
+import ContractForm from "./pages/ContractForm";
+import QuotationList from "./pages/QuotationList";
+import QuotationForm from "./pages/QuotationForm";
+import SalesPersonList from "./pages/SalesPersonList";
+import SalesPersonForm from "./pages/SalesPersonForm";
+import CommunicationLogList from "./pages/CommunicationLogList";
+import CommunicationLogForm from "./pages/CommunicationLogForm";
+import NewsletterList from "./pages/NewsletterList";
+import NewsletterForm from "./pages/NewsletterForm";
 
 export default function App() {
   return (
@@ -63,6 +73,21 @@ export default function App() {
         <Route path="/contacts" element={<ContactList />} />
         <Route path="/contacts/new" element={<ContactForm />} />
         <Route path="/contacts/:id/edit" element={<ContactForm />} />
+        <Route path="/contracts" element={<ContractList />} />
+        <Route path="/contracts/new" element={<ContractForm />} />
+        <Route path="/contracts/:id/edit" element={<ContractForm />} />
+        <Route path="/quotations" element={<QuotationList />} />
+        <Route path="/quotations/new" element={<QuotationForm />} />
+        <Route path="/quotations/:id/edit" element={<QuotationForm />} />
+        <Route path="/sales-persons" element={<SalesPersonList />} />
+        <Route path="/sales-persons/new" element={<SalesPersonForm />} />
+        <Route path="/sales-persons/:id/edit" element={<SalesPersonForm />} />
+        <Route path="/communication-logs" element={<CommunicationLogList />} />
+        <Route path="/communication-logs/new" element={<CommunicationLogForm />} />
+        <Route path="/communication-logs/:id/edit" element={<CommunicationLogForm />} />
+        <Route path="/newsletters" element={<NewsletterList />} />
+        <Route path="/newsletters/new" element={<NewsletterForm />} />
+        <Route path="/newsletters/:id/edit" element={<NewsletterForm />} />
       </Route>
     </Routes>
   );
